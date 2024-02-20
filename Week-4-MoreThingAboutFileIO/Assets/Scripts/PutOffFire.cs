@@ -31,5 +31,7 @@ public class PutOffFire : MonoBehaviour
         
         // Random rotation
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360.0f));
+
+        GameManager.instance.Score++;
     }
 }
