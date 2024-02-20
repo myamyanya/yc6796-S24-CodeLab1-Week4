@@ -526,6 +526,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManagerHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 440559300299400554, guid: 742961d3b8aa3504794692f8760275aa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518516743860090347, guid: 742961d3b8aa3504794692f8760275aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518516743860090347, guid: 742961d3b8aa3504794692f8760275aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518516743860090347, guid: 742961d3b8aa3504794692f8760275aa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123164904093505216, guid: 742961d3b8aa3504794692f8760275aa, type: 3}
+      propertyPath: m_isRichTextEditingAllowed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9131426832007449349, guid: 742961d3b8aa3504794692f8760275aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

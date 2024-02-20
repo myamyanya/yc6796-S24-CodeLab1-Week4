@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -105,11 +106,17 @@ public class GameManager : MonoBehaviour
     }
 
     public TextMeshProUGUI display;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI nameSlotText;
+    
+    // Submit button
+    public Button submit;
 
     private float timer = 0;
     public int masTime = 5;
 
-    protected bool isInGame = true;
+    private bool isInGame = true;
+    private bool isScoreBoard = false;
     
     private void Awake()
     {
@@ -128,21 +135,41 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FILE_FULL_PATH = Application.dataPath + FILE_DIR + DATA_FILE;
+        
+        submit.GetComponent<Button>().onClick.AddListener(NameSubmitted);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Invisible the name input staff
+        name.transform.parent.transform.parent.GetComponent<Image>().enabled = false;
+        nameSlotText.text = "";
+
+        submit.GetComponent<Image>().enabled = false;
+        submit.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        
         if (isInGame)
         {
             display.text = "Score: " + score + "\n"
                            + "Time: " + (masTime - (int)timer);
         }
-        else
+        else if (!isInGame && !isScoreBoard)
         {
             display.text = "GAME OVER" + "\n"
-                + "FINAL SCORE: " + score + "\n"
-                + "High Scores:\n" + highScoresString;
+                + "FINAL SCORE: " + score + "\n";
+            
+            // See the name input staff
+            name.transform.parent.transform.parent.GetComponent<Image>().enabled = true;
+            nameSlotText.text = "Enter Name...";
+            
+            submit.GetComponent<Image>().enabled = true;
+            submit.GetComponentInChildren<TextMeshProUGUI>().text = "Submit";
+            
+        }
+        else
+        {
+            display.text = "High Scores:\n" + highScoresString;
         }
 
         // Timer increases
@@ -166,5 +193,11 @@ public class GameManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    void NameSubmitted()
+    {
+        Debug.Log("Submitting...");
+        isScoreBoard = true;
     }
 }
